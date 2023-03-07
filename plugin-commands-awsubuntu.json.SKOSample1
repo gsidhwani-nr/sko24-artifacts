@@ -1,0 +1,35 @@
+{
+        "os_settings": {
+                "disksCommand": "",
+                "disksRegex": "",
+                "interfacesCommand": "/sbin/ip link show",
+                "interfacesRegex": "\\d+:\\s+(\\w+\\d*):.*",
+                "pageSizeCommand": "/usr/bin/getconf PAGESIZE"
+        },
+        "commands": [{
+  "eventType": "Sample1SKO",
+  "command": "./scripts/FieldsAsRowValues.sh",
+  "mappings": [{
+      "expression": "(\\d+)\\s+(\\w+)\\s+(\\d+)\\s+(\\d+)",
+      "metrics": [
+        {
+          "name": "someNumber",
+          "type": "NORMAL"
+        },
+        {
+          "name": "numberOfLinks",
+          "type": "NORMAL"
+        },
+        {
+          "name": "fileName",
+          "type": "NORMAL"
+        },
+        {
+          "name": "METRIC_INSTANCE"
+        }
+      ]
+    }
+        ]
+      }
+    ]
+  }

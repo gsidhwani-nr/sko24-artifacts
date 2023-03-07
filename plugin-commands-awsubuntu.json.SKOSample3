@@ -1,0 +1,51 @@
+{
+        "os_settings": {
+                "disksCommand": "",
+                "disksRegex": "",
+                "interfacesCommand": "/sbin/ip link show",
+                "interfacesRegex": "\\d+:\\s+(\\w+\\d*):.*",
+                "pageSizeCommand": "/usr/bin/getconf PAGESIZE"
+        },
+        "commands": [{
+                        "eventType": "Sample3SKO",
+                        "command": "vmstat -s",
+                        "mappings": [{
+                                        "expression": "\\s*(\\d+)\\s+(?!K\\s+)(.+)(?=ticks)",
+                                        "metrics": [{
+                                                        "name": "METRIC_VALUE",
+                                                        "type": "DELTA"
+                                                },
+                                                {
+                                                        "name": "METRIC_NAME"
+                                                }
+                                        ]
+                                },
+                                {
+                                        "expression": "\\s*(\\d+)\\s+(?!K\\s+)(.+)",
+                                        "metrics": [{
+                                                        "name": "METRIC_VALUE",
+                                                        "type": "DELTA"
+                                                },
+                                                {
+                                                        "name": "METRIC_NAME"
+                                                }
+                                        ]
+                                },
+                                {
+                                        "expression": "\\s*(\\d+)\\s+K\\s+(.+)",
+                                        "metrics": [{
+                                                        "name": "METRIC_VALUE",
+                                                        "type": "NORMAL"
+                                                },
+                                                {
+                                                        "name": "METRIC_NAME"
+                                                }
+                                        ]
+                                }
+                        ]
+                }
+
+        ]
+      }
+    ]
+  }

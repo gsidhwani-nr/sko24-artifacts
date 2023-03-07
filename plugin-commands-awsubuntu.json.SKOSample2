@@ -1,0 +1,76 @@
+{
+  "os_settings": {
+    "disksCommand": "",
+    "disksRegex": "",
+    "interfacesCommand": "/sbin/ip link show",
+    "interfacesRegex": "\\d+:\\s+(\\w+\\d*):.*",
+    "pageSizeCommand": "/usr/bin/getconf PAGESIZE"
+  },
+  "commands": [
+    {
+      "eventType": "Sample1SKO",
+      "command": "./scripts/FieldsAsRowValues.sh",
+      "mappings": [
+        {
+          "expression": "(\\d+)\\s+(\\w+)\\s+(\\d+)\\s+(\\d+)",
+          "metrics": [
+            {
+              "name": "someNumber",
+              "type": "NORMAL"
+            },
+            {
+              "name": "filename",
+              "type": "NORMAL"
+            },
+            {
+              "name": "numberofLinks",
+              "type": "NORMAL"
+            },
+            {
+              "name": "METRIC_INSTANCE"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "eventType": "Sample2SKO",
+      "command": "./scripts/FieldsAsCoulumnValues.sh",
+      "mappings": [
+        {
+          "expression": "(\\d+)\\s+(.*)",
+          "metrics": [
+            {
+              "name": "METRIC_VALUE"
+            },
+            {
+              "name": "METRIC_NAME"
+            }
+          ],
+          "translations": [
+            {
+              "input": "field1",
+              "output": "MyCustomField1",
+              "type": "NORMAL"
+            },
+            {
+              "input": "field2",
+              "output": "MyCustomField2",
+              "type": "NORMAL"
+            },
+            {
+              "input": "field3",
+              "output": "MyCustomField3",
+              "type": "NORMAL"
+            },
+            {
+              "input": "field4",
+              "output": "MyCustomField4",
+              "type": "NORMAL"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

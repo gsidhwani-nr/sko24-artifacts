@@ -1,0 +1,65 @@
+{
+  "os_settings": {
+    "disksCommand": "",
+    "disksRegex": "",
+    "interfacesCommand": "/sbin/ip link show",
+    "interfacesRegex": "\\d+:\\s+(\\w+\\d*):.*",
+    "pageSizeCommand": "/usr/bin/getconf PAGESIZE"
+  },
+  "commands": [
+    {
+      "eventType": "Sample4SKO",
+      "command": "ls -las /var/log",
+      "mappings": [
+        {
+          "expression": "(\\d+)\\s*(\\S{1})(\\S{3})(\\S{3})(\\S{3})\\s*(\\d+)\\s*(\\w+)\\s*(\\w+)\\s*(\\d+)\\s*([a-zA-Z 0-9]+)\\s(.*)",
+          "metrics": [
+            {
+              "name": "someNumber",
+              "type": "NORMAL"
+            },
+            {
+              "name": "fileType",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "ownerPermissions",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "groupPermissions",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "allPermissions",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "numberOfLinks",
+              "type": "NORMAL"
+            },
+            {
+              "name": "owner",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "group",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "fileSize",
+              "type": "NORMAL"
+            },
+            {
+              "name": "lastModified",
+              "type": "ATTRIBUTE"
+            },
+            {
+              "name": "METRIC_INSTANCE"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
