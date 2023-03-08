@@ -16,15 +16,15 @@ public class PatternMatcher {
 	
        
 		//SKO Sample 1
-				Pattern patternToMatch = Pattern.compile("(\\d+)\\s+(\\w+)\\s+(\\d+)\\s+(\\d+)");   
+				//Pattern patternToMatch = Pattern.compile("(\\d+)\\s+(\\w+)\\s+(\\d+)\\s+(\\d+)");   
 				//Pattern patternToMatch = Pattern.compile("(12)       (L23)     (43)      (76)"); 
-				Matcher lineMatch = patternToMatch.matcher("12       L23     43      76".trim());
+				//Matcher lineMatch = patternToMatch.matcher("12       L23     43      76".trim());
 		//SKO Sample 1		
 
 		//SKO Sample 2
-//				Pattern patternToMatch = Pattern.compile("(\\d+)\\s+(.*)");
-//				//Pattern patternToMatch = Pattern.compile("(123) (field1)");			   
-//				Matcher lineMatch = patternToMatch.matcher("123 field1".trim());						
+				//Pattern patternToMatch = Pattern.compile("(\\d+)\\s+\\w+\\s+(.*)");
+				Pattern patternToMatch = Pattern.compile("(123) someotherdata1 (field1)");			   
+				Matcher lineMatch = patternToMatch.matcher("123 someotherdata1 field1".trim());						
 		//SKO Sample 2
 				
 		// SKO Sample 3 
