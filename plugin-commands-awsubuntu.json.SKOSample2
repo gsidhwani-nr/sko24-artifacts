@@ -38,7 +38,7 @@
       "command": "./scripts/FieldsAsColumnValues.sh",
       "mappings": [
         {
-          "expression": "(\\d+)\\s+(.*)",
+          "expression": "(\\d+)\\s+\\w+\\s+(.*)",
           "metrics": [
             {
               "name": "METRIC_VALUE"
